@@ -1,0 +1,121 @@
+<?php
+/**
+ * IUBENDA - Privacy Policy Generator
+ *
+ * @author     iubenda <info@iubenda.com>
+ * @category   legal
+ * @package    Iubenda_Policy
+ * @copyright  Copyright (c) 2003-2012 iubenda srl (http://www.iubenda.com)
+ * @license    http://www.gnu.org/licenses/gpl-3.0.html (GPL)
+ */
+?>
+<?php
+// user info
+$user 			= Mage::getSingleton('admin/session');
+$userEmail 		= $user->getUser()->getEmail();
+// domain info
+$domain_code 	= Mage::app()->getRequest()->getParam('website');
+$domain 		= Mage::getModel('core/website')->load($domain_code);
+$domain_name 	= Mage::helper('iubenda_policy')->validateDomain($domain->getData()['name'])
+?>
+<div class="iubenda-policy-notice">
+    <h4>
+    	Every website needs a privacy policy. It&apos;s the law, everywhere. Iubenda lets you generate one in seconds, beautifully designed, customized on your needs and remotely maintained by a legal team.
+    </h4>
+    <p>
+    	This app will add a minimal privacy policy to your website right after the setup, as a badge attached to the lower border, and send you an email right after that will give you instruction on how to customize the result and integrate seamlessly integrate it with your website.
+    </p>
+    <p><a target="_blank" href="<?php echo $this->escapeHtml('https://www.iubenda.com') ?>">More info about iubenda</a></p>
+	<p>
+		<b>To start, press the following button:</b>
+	</p>
+	<input type="button" id="iubenda-policy-config-start" value="iubenda badge" style="display:none"/>
+</div>
+<div id="iubenda-policy-warning">
+	<!--<h4>
+		<p class="warning-label">WARNING:</p>
+		<p id="iubenda-policy-warning-content" class="warning-content"></p>
+	</h4>-->
+	<div class="table">
+	    <div class="table-row">
+	        <div class="table-cell"> 
+				<p class="warning-label">WARNING:</p>
+			</div>
+	        <div class="table-cell"> 
+				<p id="iubenda-policy-warning-content" class="warning-content"></p>
+			</div>
+	    </div>
+	</div>	
+</div>
+
+<script type="text/javascript">
+	if (window.addEventListener) { // Mozilla, Netscape, Firefox
+    	window.addEventListener('load', iubendaConfLoaded, false);
+	} else if (window.attachEvent) { // IE
+    	window.attachEvent('onload', iubendaConfLoaded);
+	}
+	function iubendaConfLoaded(){
+		if(isIubendaConfigShown()){
+			checkForUseDefaultFlags();
+			document.getElementById("iubenda_privacy_policy_embedding_policy_config_url").setAttribute('readonly',true);
+		}
+	}
+	function isIubendaConfigShown(){
+		return document.getElementById("iubenda_privacy_policy_embedding_policy_public_id")!=null;
+	}
+	function checkForUseDefaultFlags(){
+		// check if "Use Default" or "Use Website" flags are checked and display alerts
+		var useDefaultIdCheckBox = document.getElementById("iubenda_privacy_policy_embedding_policy_public_id_inherit");
+		if(useDefaultIdCheckBox){
+			// NOT in Default Config section
+			var useDefaultConfigUrlCheckBox = document.getElementById("iubenda_privacy_policy_embedding_policy_config_url_inherit");
+			if(useDefaultIdCheckBox.checked || useDefaultConfigUrlCheckBox.checked){
+				//displayIubendaAlert("Some or all of the \"Use Default\" or \"Use Website\" checkboxes are selected. In this case, some or all of the configurations returned from Iubenda might not be saved for the current website or store.</br>Please uncheck at least \"Privacy Policy Public ID\" and \"Privacy Policy Config\" before proceeding with privacy policy generation.");
+				displayIubendaAlert("If you want to generate a privacy policy for this specific website or store, instead of using your default configuration, uncheck \"Use Website\" or \"Use Default\" for both \"Privacy Policy Configuration Link\" and \"Privacy Policy Public ID\" fields before clicking \"Generate a privacy policy with iubenda\", or the new privacy policy won't be saved.");
+			}
+		}else{
+			// in  Default Config section
+			// do nothing
+		}
+	}
+	function displayIubendaAlert(message){
+		document.getElementById("iubenda-policy-warning").style.display = "block";		
+		document.getElementById("iubenda-policy-warning-content").innerHTML = message;
+	}
+	function setPPIdAndConf(payload){
+	    try{
+			document.getElementById("iubenda_privacy_policy_embedding_policy_public_id").value = _iub.quick_generator.output.privacy_policies[0].public_id;
+			document.getElementById("iubenda_privacy_policy_embedding_policy_config_url").value = _iub.quick_generator.output.privacy_policies[0].edit_url;
+			configForm.submit();
+	    }catch(e){
+	      var errorMessage = "ERROR while parsing data from QuickGenerator: " + e;
+	      console.log(errorMessage);
+	      alert(errorMessage);
+	    }				
+	}
+	var _iub = _iub || [];
+	_iub.quick_generator = {
+		placeholder:document.getElementById("iubenda-policy-config-start"),	// REQUIRED
+		input:{
+			privacy_policy:{
+				url:"<?php echo $domain_name?>", 							// default null
+				app_name:null,												// default null (not implemented)
+				owner:{
+					name:null,												// default null
+					email:null												// default null
+				},
+				services:[]													// default empty array (not implemented)
+			},
+			user:{
+				email:"<?php echo $userEmail?>"								// default null
+			}
+		},
+		callback:setPPIdAndConf,											// default null
+		okMessage:"Please wait, the configuration is being saved...",       // default null
+		hideLastCloseBtn:true,												// default false
+		api_key:"d138f1c74ce9d8762e2a40c67f4fa9f259d73d61",					// REQUIRED
+		language:'en',														// default 'en'
+		test:false,															// default false
+		};
+</script>
+<script type="text/javascript" src="https://hermes.iubenda.com/assets/cdn/quick_generator/loader.js"></script>

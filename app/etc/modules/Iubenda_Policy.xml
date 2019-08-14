@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * IUBENDA - Privacy Policy Generator
+ *
+ * @author     iubenda <info@iubenda.com>
+ * @category   legal
+ * @package    Iubenda_Policy
+ * @copyright  Copyright (c) 2003-2012 iubenda srl (http://www.iubenda.com)
+ * @license    http://www.gnu.org/licenses/gpl-3.0.html (GPL)
+ */
+-->
+<config>
+    <modules>
+        <Iubenda_Policy>
+            <active>true</active>
+            <codePool>community</codePool>
+            <depends>
+                <Mage_Adminhtml />
+            </depends>
+        </Iubenda_Policy>
+    </modules>
+</config>

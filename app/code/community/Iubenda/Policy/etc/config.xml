@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * IUBENDA - Privacy Policy Generator
+ *
+ * @author     iubenda <info@iubenda.com>
+ * @category   legal
+ * @package    Iubenda_Policy
+ * @copyright  Copyright (c) 2003-2012 iubenda srl (http://www.iubenda.com)
+ * @license    http://www.gnu.org/licenses/gpl-3.0.html (GPL)
+ */
+-->
+<config>
+    <modules>
+        <Iubenda_Policy>
+            <version>1.0.0.0.1</version>
+        </Iubenda_Policy>
+    </modules>
+    <global>
+		<helpers>
+            <iubenda_policy>
+                <class>Iubenda_Policy_Helper</class>
+            </iubenda_policy>
+        </helpers>		
+        <blocks>
+            <iubenda_policy>
+				<class>Iubenda_Policy_Block</class>-->
+            </iubenda_policy>
+        </blocks>		
+    </global>
+    <frontend>
+        <routers>
+            <iubenda_policy>
+                <use>standard</use>
+                <args>
+                    <module>Iubenda_Policy</module>
+                    <frontName>privacy-policy</frontName>
+                </args>
+            </iubenda_policy>
+        </routers>
+        <layout>
+            <updates>
+                <iubenda_policy>
+                    <file>iubenda_policy.xml</file>
+                </iubenda_policy>
+            </updates>
+        </layout>
+    </frontend>
+    <adminhtml>
+        <layout>
+            <updates>
+                <iubenda_policy>
+                    <file>iubenda_policy.xml</file>
+                </iubenda_policy>
+            </updates>
+        </layout>
+    </adminhtml>
+	<default>
+		<iubenda_privacy_policy>
+			<embedding>
+				<enabled>1</enabled>
+				<embed_badge>1</embed_badge>
+				<skip_badge_on_url>privacy-policy</skip_badge_on_url>
+				<direct_embed>1</direct_embed>
+			</embedding>
+		</iubenda_privacy_policy>
+	</default>
+</config>

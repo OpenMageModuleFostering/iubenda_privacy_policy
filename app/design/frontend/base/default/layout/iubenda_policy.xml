@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * IUBENDA - Privacy Policy Generator
+ *
+ * @author     iubenda <info@iubenda.com>
+ * @category   legal
+ * @package    Iubenda_Policy
+ * @copyright  Copyright (c) 2003-2012 iubenda srl (http://www.iubenda.com)
+ * @license    http://www.gnu.org/licenses/gpl-3.0.html (GPL)
+ */
+-->
+<layout version="0.1.0">
+    <default>
+        <reference name="footer_links">
+        </reference>
+		<reference name="footer">
+			<block type="iubenda_policy/embed" name="policy.embed" template="iubenda/policy/embed.phtml">				
+			</block>
+		</reference>
+    </default>	
+	<iubenda_policy_index_index>
+		<label>Privacy PolicyL</label>
+        <reference name="root">
+        </reference>
+		<reference name="head">
+			<action method="setTitle" translate="title"><title>Privacy Policy</title></action>
+		</reference>
+		<reference name="content">
+			<block type="iubenda_policy/index" name="policy.index" template="iubenda/policy/index.phtml" >
+			</block>			
+		</reference>
+	</iubenda_policy_index_index>
+</layout>

@@ -1,0 +1,13 @@
+ul.tabs a.iubenda-policy-section,
+ul.tabs a.iubenda-policy-section:hover { 
+	background:url(images/iubenda_logo_min.png) no-repeat 0 0;
+	background-position:2px 4px;
+}
+.iubenda-policy-notice { background: url(images/iubenda_logo.png) no-repeat 35px center #EAF0EE; border: 1px solid #CCC; margin-bottom: 10px; padding: 10px 5px 5px 190px;}
+#iubenda-policy-warning { background:#F0E68C; border: 1px solid #DAA520; margin-bottom: 10px; padding: 15px 5px 10px 15px; display:none;}
+#iubenda-policy-warning div.table {width: 100%; display: table;}
+#iubenda-policy-warning div.table-row {display: table-row;}
+#iubenda-policy-warning div.table-cell {display: table-cell; vertical-align:top;}
+#iubenda-policy-warning p {float:left;}
+#iubenda-policy-warning p.warning-label { margin:0px 10px 0px 0px; color:red; font-weight:bold;}
+#iubenda-policy-warning p.warning-content { color:black; font-size:12px; font-weight:normal;}

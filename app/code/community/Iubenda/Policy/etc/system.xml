@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * IUBENDA - Privacy Policy Generator
+ *
+ * @author     iubenda <info@iubenda.com>
+ * @category   legal
+ * @package    Iubenda_Policy
+ * @copyright  Copyright (c) 2003-2012 iubenda srl (http://www.iubenda.com)
+ * @license    http://www.gnu.org/licenses/gpl-3.0.html (GPL)
+ */
+-->
+<config>
+	<sections>
+		<iubenda_privacy_policy>
+            <class>separator-top</class>
+			<class>iubenda-policy-section</class>
+            <label>Privacy Policy (iubenda)</label>
+            <tab>general</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>500</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+			<groups>
+                <hint>
+                    <frontend_model>iubenda_policy/adminhtml_system_config_fieldset_hint</frontend_model>
+                    <sort_order>0</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                </hint>				
+				<embedding translate="label">
+                    <label>Privacy Policy Embedding Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+					<expanded>1</expanded>
+					<fields>
+						<!--
+                        <enabled translate="label">
+                            <label>Enable Privacy Policy Auto Embedding</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+						-->
+						<embed_badge>
+                            <label>Automatically embed the privacy policy widget on every page</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <depends><enabled>1</enabled></depends>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment><![CDATA[If "Yes" is selected, a privacy policy link will be embedded on every page of your website.</br>Select "No" in case you want to position the privacy policy differently, by getting the embedding code right from our website.]]></comment>							
+						</embed_badge>
+						<policy_config_url>
+							<label>Privacy Policy Configuration Link</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>							
+                            <depends><enabled>1</enabled></depends>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<tooltip>Don't edit this field unless you know what to do</tooltip>
+							<comment><![CDATA[Paste this link on the address bar to quickly edit your privacy policy. We also sent you this link via email.]]></comment>							
+						</policy_config_url>
+						<policy_public_id>
+							<label>Privacy Policy Public ID</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>							
+                            <depends><enabled>1</enabled></depends>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<tooltip>Don't edit this field unless you know what to do</tooltip>	
+							<comment><![CDATA[Code that identifies your privacy policy.]]></comment>						
+						</policy_public_id>
+						<!--
+						<skip_badge_on_url>
+                        	<label>Avoid Badge if Url contains:</label>
+                        	<frontend_type>text</frontend_type>
+                        	<sort_order>40</sort_order>
+                        	<depends>
+								<enabled>1</enabled>
+								<embed_badge>1</embed_badge>
+							</depends>
+                        	<show_in_default>1</show_in_default>
+                        	<show_in_website>1</show_in_website>
+                        	<show_in_store>1</show_in_store>									
+						</skip_badge_on_url>
+						<direct_embed>
+                            <label>Embed Privacy Policy in Page</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>							
+                            <sort_order>50</sort_order>
+                            <depends><enabled>1</enabled></depends>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</direct_embed>
+						-->
+					</fields>
+				</embedding>
+			</groups>			
+		</iubenda_privacy_policy>
+	</sections>
+</config>
