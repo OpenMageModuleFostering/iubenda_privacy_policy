@@ -16,7 +16,7 @@ $userEmail 		= $user->getUser()->getEmail();
 // domain info
 $domain_code 	= Mage::app()->getRequest()->getParam('website');
 $domain 		= Mage::getModel('core/website')->load($domain_code);
-$domain_name 	= Mage::helper('iubenda_policy')->validateDomain($domain->getData()['name'])
+$domain_name 	= Mage::helper('iubenda_policy')->validateDomain($domain->getData('name'))
 ?>
 <div class="iubenda-policy-notice">
     <h4>
