@@ -1,3 +1,5 @@
+
+
 ## Original Package Description
 
 Generate a privacy policy for your ecommerce.The easy, beautiful and professional way.

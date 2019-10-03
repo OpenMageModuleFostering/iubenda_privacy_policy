@@ -1,7 +1,7 @@
 {
-    "name": "OpenMageModuleFostering\/Iubenda_Privacy_Policy",
+    "name": "openmage-module-fostering\/iubenda_privacy_policy",
     "type": "magento-module",
-    "license": "General-Public-License-v3.0-(GPL)(TBC)",
+    "license": "OSL-3.0",
     "homepage": "",
     "description": "Generate a privacy policy for your ecommerce.The easy, beautiful and professional way.",
     "authors": [
